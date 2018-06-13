@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+if [ -f /dl/sessions/rtorrent.lock ]; then
+  rm -f /dl/sessions/rtorrent.lock
+fi
+
+exec screen -D -m -S rtorrent s6-setuidgid rtorrent rtorrent -n -o import=/.rtorrent.rc

@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+USER="rtorrent"
+
+if [ -n "$RTORRENT_UID" ]; then
+    OPTS="-u $RTORRENT_UID"
+fi
+
+if [ -n "$RTORRENT_GID" ]; then
+    OPTS="$OPTS -G $USER"
+    addgroup -g $RTORRENT_GID $USER
+fi
+
+adduser -D -H -h /nonexistent -g $USER -s /sbin/nologin $OPTS $USER

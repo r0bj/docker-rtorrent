@@ -1,0 +1,6 @@
+[template]
+src = "iptables.rules.tmpl"
+dest = "/iptables.rules"
+keys = [
+    "/openvpn/server"
+]

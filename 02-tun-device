@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+
+mkdir -p /dev/net
+mknod /dev/net/tun -m 0666 c 10 200
