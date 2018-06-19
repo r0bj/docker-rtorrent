@@ -1,4 +1,4 @@
 #!/usr/bin/execlineb -P
 
 cd /ovpn
-openvpn client.conf
+openvpn --config client.conf --status status
