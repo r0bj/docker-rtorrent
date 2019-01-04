@@ -31,7 +31,8 @@ COMMIT
 -A INPUT -m state --state INVALID -j DROP
 -A INPUT -d 172.17.0.0/16 -j ACCEPT
 -A INPUT -p tcp -m tcp ! --tcp-flags FIN,SYN,RST,ACK SYN -m state --state NEW -j DROP
--A INPUT -p tcp -m state --state NEW -i tun0 -m tcp --dport 9000 -m comment --comment rtorrent -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -i tun0 -m tcp --dport 9000:9001 -m comment --comment rtorrent -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -i tun0 -m tcp --dport 6881 -m comment --comment rtorrent-dht -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type 8 -m hashlimit --hashlimit-upto 3/sec --hashlimit-burst 5 --hashlimit-mode srcip --hashlimit-name icmp --hashlimit-htable-expire 1 -m state --state NEW -j ACCEPT
 -A INPUT -j DROP
 -A OUTPUT -o tun0 -j ACCEPT -m comment --comment "unencrypted traffic inside tunnel"
