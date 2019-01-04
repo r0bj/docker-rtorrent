@@ -8,3 +8,5 @@ schedule = untied_directory,5,5,close_untied=
 schedule = untied_directory,5,5,remove_untied=
 port_range = 9000-9000
 scgi_port = 0.0.0.0:5000
+dht = auto
+dht_port = 6881
