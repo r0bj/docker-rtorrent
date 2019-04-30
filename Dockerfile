@@ -1,6 +1,6 @@
-FROM alpine:3.7
+FROM alpine:3.9
 
-ARG S6_VER=1.21.4.0
+ARG S6_VER=1.22.1.0
 ARG CONFD_VER=0.16.0
 
 # util-linux needed for script command
