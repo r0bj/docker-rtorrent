@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.11
 
 ARG S6_VER=1.22.1.0
 ARG CONFD_VER=0.16.0
