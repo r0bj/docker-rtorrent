@@ -1,14 +1,15 @@
 #!/usr/bin/with-contenv bash
 
-USER="rtorrent"
+RTORRENT_USER=${RTORRENT_USER:-rtorrent}
 
 if [ -n "$RTORRENT_UID" ]; then
     OPTS="-u $RTORRENT_UID"
 fi
 
 if [ -n "$RTORRENT_GID" ]; then
-    OPTS="$OPTS -G $USER"
-    addgroup -g $RTORRENT_GID $USER
+    OPTS="$OPTS -G $RTORRENT_USER"
+    addgroup -g $RTORRENT_GID $RTORRENT_USER
 fi
 
-adduser -D -H -h /nonexistent -g $USER -s /sbin/nologin $OPTS $USER
+adduser -H -h /nonexistent -D -s /sbin/nologin $OPTS $RTORRENT_USER
+#adduser -D -s /sbin/nologin $OPTS $RTORRENT_USER
